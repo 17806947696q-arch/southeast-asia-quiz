@@ -95,7 +95,7 @@ body{background:var(--bg);color:var(--text);font-family:'Inter','Noto Serif SC',
 </style>
 </head>
 <body><div class="app" id="app"></div>
-<script src="questions.js"></script>
+<script src="questions.js?v=2"></script>
 <script>
 const QB=window.QB||{};
 let S={mode:'all',questions:[],idx:0,score:0,wrong:0,answered:false,started:false,finished:false,wrongList:[],status:[]};
@@ -218,7 +218,6 @@ else if(pct>=50){emoji='📚';msg='还需努力，建议加强复习。';color='
 else{emoji='💪';msg='基础较薄弱，建议系统复习。';color='#c47858';}
 const wl=S.wrongList;
 const countries=[...new Set(wl.map(w=>w.country).filter(Boolean))];
-const types=[...new Set(wl.map(w=>w.type).filter(Boolean))];
 A.innerHTML='';
 A.appendChild(h('div',{className:'result fade-in'},h('div',{className:'card'},
 h('div',{style:'fontSize:48px;marginBottom:8px'},emoji),
