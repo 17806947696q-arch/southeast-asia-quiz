@@ -95,7 +95,7 @@ body{background:var(--bg);color:var(--text);font-family:'Inter','Noto Serif SC',
 </style>
 </head>
 <body><div class="app" id="app"></div>
-<script src="questions.js?v=2"></script>
+<script src="data.js"></script>
 <script>
 const QB=window.QB||{};
 let S={mode:'all',questions:[],idx:0,score:0,wrong:0,answered:false,started:false,finished:false,wrongList:[],status:[]};
@@ -121,7 +121,7 @@ const T=(QB.choice?.length||0)+(QB.truefalse?.length||0)+(QB.fillblank?.length||
 A.innerHTML='';
 A.appendChild(h('div',{className:'start fade-in'},h('div',{className:'card'},
 h('div',{className:'s-title'},'期末复习测验'),
-h('div',{className:'s-sub'},'东南亚与南亚国家概况 · 完整版<br>选择题 + 判断题 + 填空题 · 共'+T+'题'),
+h('div',{className:'s-sub'},'东南亚与南亚国家概况<br>选择题 + 判断题 + 填空题 · 共'+T+'题'),
 h('div',{className:'s-stats'},
 h('div',{className:'stat-i'},h('div',{className:'stat-n'},String(T)),h('div',{className:'stat-l'},'总题数')),
 h('div',{className:'stat-i'},h('div',{className:'stat-n'},String(QB.choice?.length||0)),h('div',{className:'stat-l'},'选择题')),
@@ -166,7 +166,7 @@ function renderFillBlank(area,q){
 const parts=q.a.split(';');
 const hint=parts.length>1?('共'+parts.length+'个空，用空格或分号分隔'):'';
 const wrap=h('div',{className:'blk-wrap'});
-const inp=h('input',{className:'blk-inp',type:'text',placeholder:hint||'输入你的答案...',id:'blk-inp'});
+const inp=h('input',{className:'blk-inp',type:'text',placeholder:hint||'输入答案',id:'blk-inp'});
 const sub=h('button',{className:'blk-submit',onClick:checkFillBlank},'确认');
 wrap.appendChild(inp);wrap.appendChild(sub);area.appendChild(wrap);
 if(hint)area.insertBefore(h('div',{style:'font-size:12px;color:var(--text-muted);margin-bottom:8px;text-align:center'},hint),wrap);
